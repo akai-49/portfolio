@@ -64,3 +64,12 @@ export const flows: Record<string, Flow> = {
 }
 
 export const education = { degree: 'B.E. in Computer Science and Business Systems', school: 'Visvesvaraya Technological University (VTU), Karnataka', year: '2026' }
+
+export const notes = [
+  { n: '01', title: 'Pausing an AI agent without losing its place', tag: 'LangGraph',
+    body: "The Campaign Agent is a LangGraph graph, so a pause is a graph interruption. After each run I check whether the graph still has a next node queued. If it does, execution stopped on a question or a confirmation, and I surface that to the user. The graph's state is checkpointed in Redis, so the answer can arrive in a different request and the run resumes with Command(resume=...). Interrupts carry a type (text, media picker, confirmation) so the UI shows the right control. The point is that an approval gate is part of the workflow's state and not a flag in the UI." },
+  { n: '02', title: "Why a CRM sync doesn't loop", tag: 'Sync design',
+    body: "Syncing contacts from SendWell to Twenty and back can bounce an update forever. On the outbound push, a contact is skipped only when updatedAt is not later than crmSyncedAt, so any edit after the last sync still goes out. I record crmSyncedAt after the remote call returns, so a slow request can't mark a contact as synced too early. The push sends only the fields we map (name, email, phone), so CRM-side custom fields are never overwritten." },
+  { n: '03', title: 'Retrying by error code, not by counter', tag: 'Queues',
+    body: "In the bulk messaging pipeline, the error code decides the retry wait. A transient failure retries after 30 seconds, 2 minutes and 10 minutes. Meta's documented waits are used for specific codes, and anything terminal fails at once. Waits of 15 minutes or less go back on the queue with a delay. Longer ones become one-shot EventBridge schedules named after the recipient and attempt, so a redelivered failure hits a conflict that is treated as already booked. The manifest is read line by line from S3 and re-batched in tens, so memory scales with the batch, not the blast." },
+]

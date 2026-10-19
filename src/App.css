@@ -72,3 +72,8 @@
 /* Accessibility: keyboard focus and AA contrast on the darker case-study band. */
 a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }.contact-section a:focus-visible, .contact-section button:focus-visible { outline-color: var(--lime); }
 .case-studies { --muted: #585b61; --blue: #2c4bd0; }
+
+.notes-section { border-top: 1px solid var(--line); }.notes-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); }.note { background: var(--white); padding: 32px 30px 36px; transition: transform .35s ease, box-shadow .35s ease; }.note:hover { box-shadow: 0 18px 45px rgba(23,26,33,.1); transform: translateY(-6px); }.note h3 { font-size: 1.5rem; letter-spacing: -.05em; line-height: 1.05; margin: 40px 0 18px; }.note p { color: var(--muted); font-size: .84rem; line-height: 1.75; margin: 0; }
+@media (max-width: 1000px) { .notes-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .site-header nav { gap: 12px; }.note:hover { box-shadow: none; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .note { transition: none; } }

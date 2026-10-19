@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
-import { education, experience, flows, learned, projects, stats } from './data'
+import { education, experience, flows, learned, notes, projects, stats } from './data'
 
 function CountUp({ to }: { to: number }) {
   const ref = useRef<HTMLElement>(null)
@@ -65,6 +65,7 @@ function App() {
           <a href="#work">Work</a>
           <a href="#about">About</a>
           <a href="#learning">Learning</a>
+          <a href="#notes">Notes</a>
           <a href="#contact">Contact</a>
         </nav>
         <a className="header-status" href="#contact"><span aria-hidden="true" /> Open to work</a>
@@ -140,6 +141,10 @@ function App() {
 
         <section className="learning-section section-block" id="learning"><div className="section-heading"><p className="eyebrow">What I've learned</p><h2>Concepts picked up by building real systems.</h2></div>
           <div className="learn-grid">{learned.map(g => <div key={g.group} className="learn-group reveal"><strong>{g.group}</strong><div className="chip-list">{g.items.map(i => <span key={i}>{i}</span>)}</div></div>)}</div>
+        </section>
+
+        <section className="notes-section section-block" id="notes"><div className="section-heading"><p className="eyebrow">Notes</p><h2>Short write-ups on problems I had to solve.</h2></div>
+          <div className="notes-grid">{notes.map(x => <article key={x.n} className="note reveal"><div className="project-meta"><span>{x.n}</span><span>{x.tag}</span></div><h3>{x.title}</h3><p>{x.body}</p></article>)}</div>
         </section>
 
         <section className="contact-section" id="contact"><div><p className="eyebrow">Have a role or a problem worth solving?</p><h2>Let's make something useful.</h2></div><div className="contact-actions"><a className="contact-link" href="mailto:abhishekhiremath4949@gmail.com">abhishekhiremath4949@gmail.com <span aria-hidden="true">&#8599;</span></a><a className="copy-email" href="/Abhishek-Hiremath-Resume.pdf" download>Download CV</a><CopyEmail email="abhishekhiremath4949@gmail.com" /></div></section>

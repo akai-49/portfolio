@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
-import { learned, projects, stats } from './data'
+import { experience, learned, projects, stats } from './data'
 
 function CountUp({ to }: { to: number }) {
   const ref = useRef<HTMLElement>(null)
@@ -73,6 +73,7 @@ function App() {
             <p className="hero-intro">I am Abhishek, a software developer building AI-powered products and reliable backend systems.</p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">See selected work <span aria-hidden="true">-&gt;</span></a>
+              <a className="text-link" href="/Abhishek-Hiremath-Resume.pdf" download>Download CV <span aria-hidden="true">&#8595;</span></a>
               <a className="text-link" href="#contact">Let's connect <span aria-hidden="true">&#8599;</span></a>
             </div>
           </div>
@@ -130,13 +131,13 @@ function App() {
           <div className="about-grid"><p className="about-lead">I like working where product decisions, interface details, and backend realities meet. My strongest work turns complicated systems into clear experiences that people can trust.</p><div className="about-details"><p>My toolkit moves between Python, TypeScript, Vue, React, APIs, databases, and AI orchestration. I care about thoughtful defaults, observable systems, and the small moments that make software feel considered.</p><a className="text-link" href="#experience">See experience and skills <span aria-hidden="true">&#8599;</span></a></div></div>
         </section>
 
-        <section className="experience-section section-block" id="experience"><div className="section-heading"><p className="eyebrow">Experience and skills</p><h2>Tools are useful. Judgment is the real toolkit.</h2></div><div className="experience-row"><div><p className="case-label">Current focus</p><h3>Software development</h3><p className="muted-copy">Building product features and platform services across the MSuite ecosystem.</p></div><div className="skill-groups"><div><strong>Build with</strong><p>Python / TypeScript / Go / Vue / React / Next.js / FastAPI / Node.js</p></div><div><strong>Think about</strong><p>AI orchestration / APIs / multi-tenancy / realtime systems / accessibility</p></div></div></div></section>
+        <section className="experience-section section-block" id="experience"><div className="section-heading"><p className="eyebrow">Experience and skills</p><h2>Tools are useful. Judgment is the real toolkit.</h2></div><div className="experience-row"><div className="reveal"><p className="case-label">{experience.dates}</p><h3>{experience.role}</h3><p className="muted-copy">{experience.company}, {experience.place}</p><ul className="exp-list">{experience.points.map(p => <li key={p}>{p}</li>)}</ul></div><div className="skill-groups"><div><strong>Build with</strong><p>Python / TypeScript / Go / Vue / React / Next.js / FastAPI / Node.js</p></div><div><strong>Think about</strong><p>AI orchestration / APIs / multi-tenancy / realtime systems / accessibility</p></div></div></div></section>
 
         <section className="learning-section section-block" id="learning"><div className="section-heading"><p className="eyebrow">What I've learned</p><h2>Concepts picked up by building real systems.</h2></div>
           <div className="learn-grid">{learned.map(g => <div key={g.group} className="learn-group reveal"><strong>{g.group}</strong><div className="chip-list">{g.items.map(i => <span key={i}>{i}</span>)}</div></div>)}</div>
         </section>
 
-        <section className="contact-section" id="contact"><div><p className="eyebrow">Have a role or a problem worth solving?</p><h2>Let's make something useful.</h2></div><div className="contact-actions"><a className="contact-link" href="mailto:abhishekhiremath4949@gmail.com">abhishekhiremath4949@gmail.com <span aria-hidden="true">&#8599;</span></a><CopyEmail email="abhishekhiremath4949@gmail.com" /></div></section>
+        <section className="contact-section" id="contact"><div><p className="eyebrow">Have a role or a problem worth solving?</p><h2>Let's make something useful.</h2></div><div className="contact-actions"><a className="contact-link" href="mailto:abhishekhiremath4949@gmail.com">abhishekhiremath4949@gmail.com <span aria-hidden="true">&#8599;</span></a><a className="copy-email" href="/Abhishek-Hiremath-Resume.pdf" download>Download CV</a><CopyEmail email="abhishekhiremath4949@gmail.com" /></div></section>
       </main>
       <footer className="site-footer"><span>Abhishek / Software developer</span><div><a href="https://github.com/akai-49" target="_blank" rel="noreferrer">GitHub &#8599;</a><a href="https://www.linkedin.com/in/abhi-hiremath49/" target="_blank" rel="noreferrer">LinkedIn &#8599;</a></div><span>© 2026</span></footer>
     </div>

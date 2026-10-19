@@ -37,3 +37,14 @@ export const learned = [
   { group: 'Frontend', items: ['React and Next.js', 'Vue', 'Accessibility', 'Playwright testing', 'Motion with restraint'] },
   { group: 'Languages', items: ['Python', 'TypeScript', 'Go', 'C++ and Node fundamentals'] },
 ]
+
+export const experience = {
+  role: 'Software Engineer', company: 'ZIBMOC Business Solutions Pvt Ltd', place: 'Bangalore, India', dates: 'Aug 2025 - Present',
+  points: [
+    'Built MSuite, a multi-tenant marketing and CRM platform with seven modules: WhatsApp, social publishing, inbox, automation, ads, email and SMS.',
+    'Enforced tenant isolation with workspace-scoped RBAC, plan-based feature gating, OAuth 2.0 and JWT propagation.',
+    'Integrated WhatsApp Business, Facebook, Instagram, YouTube and LinkedIn through OAuth and webhook pipelines with automated retries.',
+    'Cut API latency under peak load with query profiling, composite indexes and Redis caching.',
+    'Built Campaign Agent, a LangGraph copilot that plans campaign work and pauses for human approval before publishing or spending.',
+  ],
+}

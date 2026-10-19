@@ -56,3 +56,6 @@
 .learning-section { border-top: 1px solid var(--line); }
 @media (max-width: 760px) { .stats-row { gap: 14px; }.learn-group { display: block; }.chip-list { margin-top: 16px; } }
 .project-visual-lime { display: block; align-items: initial; }
+.contact-actions { align-items: end; display: flex; flex-direction: column; gap: 18px; }.copy-email { background: none; border: 1px solid #878c98; color: var(--white); cursor: pointer; font: 500 .64rem var(--mono); letter-spacing: .06em; padding: 10px 14px; text-transform: uppercase; transition: background .2s ease, color .2s ease; }.copy-email:hover { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+@media (max-width: 760px) { .contact-actions { align-items: start; } }
+.contact-link { white-space: nowrap; }

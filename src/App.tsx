@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import { learned, projects, stats } from './data'
 
@@ -22,6 +22,12 @@ function CountUp({ to }: { to: number }) {
     return () => io.disconnect()
   }, [to])
   return <strong ref={ref}>0</strong>
+}
+
+function CopyEmail({ email }: { email: string }) {
+  const [done, setDone] = useState(false)
+  const copy = () => navigator.clipboard.writeText(email).then(() => { setDone(true); setTimeout(() => setDone(false), 1800) })
+  return <button className="copy-email" onClick={copy} aria-live="polite">{done ? 'Copied' : 'Copy email'}</button>
 }
 
 function useMotion() {
@@ -130,7 +136,7 @@ function App() {
           <div className="learn-grid">{learned.map(g => <div key={g.group} className="learn-group reveal"><strong>{g.group}</strong><div className="chip-list">{g.items.map(i => <span key={i}>{i}</span>)}</div></div>)}</div>
         </section>
 
-        <section className="contact-section" id="contact"><div><p className="eyebrow">Have a role or a problem worth solving?</p><h2>Let's make something useful.</h2></div><a className="contact-link" href="mailto:abhishekhiremath4949@gmail.com">abhishekhiremath4949@gmail.com <span aria-hidden="true">&#8599;</span></a></section>
+        <section className="contact-section" id="contact"><div><p className="eyebrow">Have a role or a problem worth solving?</p><h2>Let's make something useful.</h2></div><div className="contact-actions"><a className="contact-link" href="mailto:abhishekhiremath4949@gmail.com">abhishekhiremath4949@gmail.com <span aria-hidden="true">&#8599;</span></a><CopyEmail email="abhishekhiremath4949@gmail.com" /></div></section>
       </main>
       <footer className="site-footer"><span>Abhishek / Software developer</span><div><a href="https://github.com/akai-49" target="_blank" rel="noreferrer">GitHub &#8599;</a><a href="https://www.linkedin.com/in/abhi-hiremath49/" target="_blank" rel="noreferrer">LinkedIn &#8599;</a></div><span>© 2026</span></footer>
     </div>

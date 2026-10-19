@@ -62,3 +62,13 @@
 .exp-list { color: var(--muted); font-size: .86rem; line-height: 1.7; margin: 24px 0 0; max-width: 460px; padding-left: 18px; }.exp-list li { margin-bottom: 10px; }.muted-copy { max-width: 460px; }a.copy-email { display: inline-block; }
 @media (max-width: 760px) { .hero-actions { flex-wrap: wrap; gap: 18px 24px; } }
 .skill-groups { align-content: start; }
+
+.flow { counter-reset: step; display: grid; gap: 10px; grid-template-columns: repeat(6, 1fr); list-style: none; margin: 0 0 40px; max-width: 800px; padding: 0; }.flow li { background: var(--white); border: 1px solid #c7c3ba; counter-increment: step; padding: 12px 10px; position: relative; }.flow li:before { color: var(--blue); content: '0' counter(step); display: block; font: .56rem var(--mono); margin-bottom: 8px; }.flow li:not(:last-child):after { color: var(--muted); content: '\2192'; font: .7rem var(--mono); position: absolute; right: -10px; top: 50%; transform: translate(50%, -50%); z-index: 1; }.flow strong { display: block; font-size: .78rem; letter-spacing: -.02em; }.flow span { color: var(--muted); display: block; font-size: .64rem; line-height: 1.4; margin-top: 4px; }.flow .gate { background: var(--ink); border-color: var(--ink); }.flow .gate strong { color: var(--white); }.flow .gate span { color: #aeb3bd; }.flow .gate:before { color: var(--lime); }
+.flow li { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }.flow.in li { opacity: 1; transform: none; }.flow li:nth-child(2) { transition-delay: .08s; }.flow li:nth-child(3) { transition-delay: .16s; }.flow li:nth-child(4) { transition-delay: .24s; }.flow li:nth-child(5) { transition-delay: .32s; }.flow li:nth-child(6) { transition-delay: .4s; }
+.edu { color: var(--muted); font-size: .8rem; line-height: 1.6; margin: 28px 0 0; max-width: 460px; }.edu strong { color: var(--ink); display: block; font: 500 .64rem var(--mono); letter-spacing: .06em; margin-bottom: 6px; text-transform: uppercase; }
+@media (max-width: 760px) { .flow { grid-template-columns: 1fr 1fr; }.flow li:not(:last-child):after { display: none; } }
+@media (prefers-reduced-motion: reduce) { .flow li { opacity: 1; transform: none; transition: none; } }
+@media (max-width: 760px) { .site-header nav a:before, .text-link:before, .site-footer a:before { content: ''; inset: -12px -6px; position: absolute; }.text-link, .site-footer a { position: relative; } }
+/* Accessibility: keyboard focus and AA contrast on the darker case-study band. */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }.contact-section a:focus-visible, .contact-section button:focus-visible { outline-color: var(--lime); }
+.case-studies { --muted: #585b61; --blue: #2c4bd0; }

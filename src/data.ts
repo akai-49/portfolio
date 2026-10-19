@@ -48,3 +48,19 @@ export const experience = {
     'Built Campaign Agent, a LangGraph copilot that plans campaign work and pauses for human approval before publishing or spending.',
   ],
 }
+
+export type Flow = { label: string; steps: { t: string; s: string; gate?: boolean }[] }
+
+export const flows: Record<string, Flow> = {
+  copilot: { label: 'Copilot request flow', steps: [
+    { t: 'Goal', s: 'Natural language' }, { t: 'Planner', s: 'Task graph' }, { t: 'Ask user', s: 'One missing field' },
+    { t: 'Approval', s: 'Human gate', gate: true }, { t: 'MCP tools', s: 'Typed actions' }, { t: 'Stream', s: 'SSE to the UI' } ] },
+  messaging: { label: 'Bulk messaging flow', steps: [
+    { t: 'Manifest', s: 'Streamed from S3' }, { t: 'Queue', s: 'SQS trigger' }, { t: 'Lambdas', s: 'Fan-out and retry' },
+    { t: 'Providers', s: 'Email, SMS, WhatsApp' }, { t: 'Receipts', s: 'Two-lane webhooks' }, { t: 'Platform', s: 'Status relayed back' } ] },
+  crm: { label: 'CRM sync flow', steps: [
+    { t: 'Webhook', s: 'From Twenty' }, { t: 'Verify', s: 'Signature check', gate: true }, { t: 'Echo check', s: 'Skip own updates' },
+    { t: 'Upsert', s: 'Race-safe contact' }, { t: 'Queue', s: 'Outbound sync' }, { t: 'Twenty', s: 'Resumable backfill' } ] },
+}
+
+export const education = { degree: 'B.E. in Computer Science and Business Systems', school: 'Visvesvaraya Technological University (VTU), Karnataka', year: '2026' }
